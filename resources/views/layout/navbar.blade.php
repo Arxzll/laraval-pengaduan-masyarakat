@@ -51,21 +51,26 @@
     <li class="nav-item">
         <a class="nav-link active" href="/tambah_petugas" tabindex="-1" aria-disabled="true"><b>Tambah Petugas</b></a>
     </li>
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link active" href="{{url('/logout')}}" tabindex="-1" aria-disabled="true"><b>LogOut</b></a>
-    </li>
+    </li> --}}
 
 
 </ul>
+<ul class="navbar-nav ml-auto">
+  <li class="nav-button">
+      <a href="{{url('/logout')}}" class="btn btn-primary"  tabindex="-1" aria-disabled="true" style=" color:white; margin:2px"><b>LogOut</b></a>          
+  </li>
+</ul>
 
-        <ul class="navbar-nav ml-auto">
+        {{-- <ul class="navbar-nav ml-auto">
           <li class="nav-button">
               <a href="/login" class="btn btn-primary"  tabindex="-1" aria-disabled="true" style=" color:white; margin:2px"><b>Login</b></a>          
           </li>
           <li class="nav-button">
               <a href="/register"  class="btn btn-primary"  tabindex="-1" aria-disabled="true"  style=" color:white; margin:2px"><b>Register</b></a>
           </li>
-      </ul>
+      </ul> --}}
       <ul class="navbar-nav ml-auto">
         <li class="nav-button">
           <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />

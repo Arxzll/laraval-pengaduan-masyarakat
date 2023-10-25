@@ -25,12 +25,15 @@ class AuthController extends Controller
     $user = DB::table('masyarakat')->insert([
         'nik' => $request->nik,
         'nama'=> $request->nama,
-        'username' => $request->username,
+        'username' => $request->username,-
         'password' => Hash::make($request->password),
         'telp' => $request->telp,
 
         
     ]);
+    return redirect('/home');
+    
     
 }
+
 }

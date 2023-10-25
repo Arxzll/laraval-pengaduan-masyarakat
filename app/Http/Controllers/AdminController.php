@@ -13,7 +13,7 @@ class AdminController extends Controller
 
         $nama = $request->nama;
         $username = $request->username;
-        $password = $request->password;
+        $password = hash::make($request->password);
         $telp = $request->telp;
     
         DB::table('petugas')->insert([

@@ -9,12 +9,8 @@ class MasyarakatController extends Controller
 {
     
    function home(){
-    // $user = Auth::user();
- 
-    // // Retrieve the currently authenticated user's ID...
-    // $id = Auth::id();
 
-    // return $user;
+    // return Auth::user();
     return view('/home');
    }
    function masyarakat(){
@@ -30,7 +26,7 @@ class MasyarakatController extends Controller
     $nik = $request->nik;
     $nama = $request->nama;
     $username = $request->username;
-    $password = $request->password;
+    $password = hash::make($request->password);
     $telp = $request->telp;
 
     DB::table('masyarakat')->insert([
