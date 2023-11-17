@@ -9,10 +9,15 @@ class PetugasController extends Controller
 {
     function petugas(){
         $petugas = DB::table('petugas')->get();
-        return view('data_petugas',['petugas' => $petugas]);
+        return view('petugas/data_petugas',['petugas' => $petugas]);
       }
       public function index(){
         return view('petugas.home');
+      }
+
+      function masyarakat(){
+        $masyarakat = DB::table('masyarakat')->get();
+        return view('petugas/data_masyarakat',['masyarakat' => $masyarakat]);
       }
 
       public function create(): View

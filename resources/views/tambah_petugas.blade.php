@@ -1,4 +1,4 @@
-@include('layout.navbar')
+@include('layout.navpetugas')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,13 +7,19 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/register.css">
     <link rel="stylesheet" href="css/bg.css">
+    <style>
+      body{
+    background-image: url('../image/bg5.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+    </style>
 </head>
   <body class="align">
-
+<h1 style="text-align: center; margin-top: 50px; font-weight:bold;">Tambahkan akun petugas</h1>
     <div class="grid container mb-5 register">
   
-      <form method="POST" action="" class="container mt-5" style="background-color: rgba(238, 234, 234, 0.8); border-radius:5px;box-shadow: 5px 5px rgb(180, 180, 180,0.8)
-      ;">
+      <form method="POST" action="" class="container mt-5" style="box-size:50%; background-color: rgba(238, 234, 234, 0.8);border-radius:5px;box-shadow: 5px 5px #BAD7E9;">
         @csrf
 
         

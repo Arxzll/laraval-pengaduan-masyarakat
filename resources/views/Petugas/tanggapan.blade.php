@@ -1,4 +1,4 @@
-@include('layout.navbar')
+@include('layout.navpetugas')
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,25 +11,21 @@
     <link rel="stylesheet" href="css/bg.css">
 </head>
 <body>
-    <h4 style="text-align: center; margin-top: 20px; margin-bottom: 20px;">Pengaduan</h4>  
+    <h4 style="text-align: center; margin-top: 20px; margin-bottom: 20px;">Tanggapan</h4>  
     <div class="container" style="width:100%;">
     <form action="" method="POST" enctype="multipart/form-data">
       @method("POST")
       @csrf
     <div class="mb-3">
-      <label for="exampleFormControlInput1" class="form-label" style="color: black;">Keluh kesah anda</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="isi_laporan"></textarea>
-    @error('isi_laporan')
+      <label for="exampleFormControlInput1" class="form-label" style="color: black;">Berikan Tangapan</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="tanggapan"></textarea>
+    @error('tanggapan')
     <script>Swal.fire({
       icon: 'error',
       title: 'Oops...',
-      text: 'Silahkan Isi Aduannya!',
+      text: 'Silahkan Isi Tanggapannya!',
     })</script>
     @enderror
-    </div>
-    <div class="mb-3">
-      <label for="exampleFormControlTextarea1" class="form-label" style="color: white;">Foto</label>
-      <input class="foto" name="foto" type="file" multiple>
     </div>
     <button type="submit" class="btn btn-primary">kirim</button>
     </form>

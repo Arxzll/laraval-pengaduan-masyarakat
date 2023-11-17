@@ -1,4 +1,4 @@
-@include ('layout.navbar')
+@include ('layout.navpetugas')
 @section ('content')
     
 @endsection
@@ -29,7 +29,7 @@
       </thead>
       @foreach($petugas as $petugas)
       <tbody class="table-group-divider">
-    <td>{{$petugas->id_petugas}}</td>
+    <td>{{$petugas->id}}</td>
     <td>{{$petugas->nama_petugas}}</td>
     <td>{{$petugas->username}}</td>
     <td>{{$petugas->telp}}</td>

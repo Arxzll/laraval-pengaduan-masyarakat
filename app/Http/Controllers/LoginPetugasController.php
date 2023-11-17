@@ -9,13 +9,14 @@ use Illuminate\Support\Facades\Hash;
 class LoginPetugasController extends Controller
 {
     public function index(){
+        // return hash::make('123');
         return view('Petugas.login_petugas');
     }
 
     public function login(Request $request){
         $data = $request->only('username', 'password');
         if(Auth::guard('petugas')->attempt($data)){
-            echo "berhasil";
+            return view ('petugas.home');
         }else{
             return redirect("petugas/login");
         }

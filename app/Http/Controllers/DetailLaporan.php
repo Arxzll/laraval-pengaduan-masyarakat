@@ -6,18 +6,36 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class DetailLaporan extends Controller
 {
-    function hapus($id_pengaduan){
-        DB::table('pengaduan')->where('id_pengaduan', '=' ,$id_pengaduan)->delete();
-        return redirect('/hasil');
-    }
-    
     function detail($id_pengaduan){
+        $title = "Laporan Per Orang";
+        $pengaduan = DB::table('pengaduan')->rightJoin('tanggapan', 'pengaduan.id_pengaduan', '=', 'tanggapan.id_pengaduan')
+                ->where('pengaduan.id_pengaduan', $id_pengaduan)
+                ->first();
+  
+                return view('detail', [
+                    "title" => $title,
+                    "pengaduan" => $pengaduan
+                ]);        
+    }   
+
+    function detail_petugas($id_pengaduan){
+        $title = "Laporan Per Orang";
+        $pengaduan = DB::table('pengaduan')->rightJoin('tanggapan', 'pengaduan.id_pengaduan', '=', 'tanggapan.id_pengaduan')
+                ->where('pengaduan.id_pengaduan', $id_pengaduan)
+                ->first();
+  
+                return view('petugas.detail', [
+                    "title" => $title,
+                    "pengaduan" => $pengaduan
+                ]);        
+            }
+    function detailp($id_pengaduan){
         $title = "Laporan Per Orang";
         $pengaduan = DB::table('pengaduan')
                 ->where('id_pengaduan', $id_pengaduan)
                 ->first();
   
-                return view('detail', [
+                return view('petugas/detail', [
                     "title" => $title,
                     "pengaduan" => $pengaduan
                 ]);        
@@ -50,6 +68,24 @@ class DetailLaporan extends Controller
             ]);
 
             return redirect('hasil');
+    }
+
+    public function generateReport($id)
+    {
+        // Fetch data from the database based on $nik
+        $pengaduan = DB::table('pengaduan')
+        ->rightJoin('masyarakat', 'pengaduan.nik', '=', 'masyarakat.nik')
+        ->where('pengaduan.id_pengaduan',$id)
+            ->get();
+    
+
+        if (!$pengaduan) {
+            // Handle the case where the report data doesn't exist
+            abort(404);
+        }
+
+        // Return the report view with data
+        return view('petugas.report', ['pengaduan' => $pengaduan]);
     }
 }
 

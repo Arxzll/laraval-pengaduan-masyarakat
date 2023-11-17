@@ -1,4 +1,4 @@
-@include('layout.navbar')
+@include('layout.navpetugas')
 @section('content')
     
 @endsection
@@ -12,6 +12,8 @@
   <title>Document</title>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link rel="stylesheet" href="css/bg.css">
+  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
 <h4 style="text-align: center; margin-top: 20px; margin-bottom: 30px;">Data Laporan Masyarakat</h4>  
@@ -27,6 +29,7 @@
               <th scope="col">Foto</th>
               <th scope="col">Status</th>
               <th scope="col">opsi</th>
+              <td scope="col">verifikasi</td>
           </tr> 
         </thead>
       @foreach($pengaduan as $pengaduan)
@@ -53,21 +56,28 @@
       <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M222.7 32.1c5 16.9-4.6 34.8-21.5 39.8C121.8 95.6 64 169.1 64 256c0 106 86 192 192 192s192-86 192-192c0-86.9-57.8-160.4-137.1-184.1c-16.9-5-26.6-22.9-21.5-39.8s22.9-26.6 39.8-21.5C434.9 42.1 512 140 512 256c0 141.4-114.6 256-256 256S0 397.4 0 256C0 140 77.1 42.1 182.9 10.6c16.9-5 34.8 4.6 39.8 21.5z"/></svg>          @endif
       <!-- Additional content or code for both cases -->
   </td>
-    <td>
-      @if ($pengaduan->status == 'ditolak')
-
-      @elseif($pengaduan->status == 'selesai')
-      
-      @else
-      <form method="POST" action="/PengaduanController/hapusm/{{ $pengaduan->id_pengaduan }}">
+      <td>
+      <form method="POST" action="/PengaduanController/hapus/{{ $pengaduan->id_pengaduan }}">
         @csrf
         @method('DELETE')
         <button type="submit" class="btn btn-danger" onclick="alert('Yakin?')">Hapus</button>
-        <span><a href="/hasil/update_pengaduan/{{$pengaduan->id_pengaduan}}" class="btn btn-warning">Update</a></span>
-        @endif
-        <a type="submit" class="btn btn-success" href="/DetailLaporan/detail/{{ $pengaduan->id_pengaduan }}">Detail</a>
-    </form>
 
+        <a type="submit" class="btn btn-success" href="/Petugas/DetailLaporan/Tanggapan/{{ $pengaduan->id_pengaduan }}">Tanggapan</a>
+        <a type="submit" class="btn btn-success" href="/Petugas/DetailLaporan/detail/{{ $pengaduan->id_pengaduan }}">Detail</a>
+    </form>
+    <td>
+      @if ($pengaduan->status == '0')
+      {{-- Show 'Terima' and 'Tolak' buttons --}}
+          <a href="/Petugas/DetailLaporan/terima/{{$pengaduan->id_pengaduan}}" type="submit" class="btn btn-success">Terima</a>
+          <a href="/Petugas/DetailLaporan/tolak/{{$pengaduan->id_pengaduan}}" type="submit" class="btn btn-danger">Tolak</a>
+  @elseif ($pengaduan->status == 'proses')
+      {{-- Show 'Selesai' a --}}
+          <a href="/Petugas/DetailLaporan/selesai/{{$pengaduan->id_pengaduan}}" type="submit" class="btn btn-primary">Selesai</a>
+  @else
+      {{-- Hide buttons when status is 'selesai' --}}
+      <span>No actions available</span>
+  @endif
+  </td> 
     </td>
 
   </tbody>

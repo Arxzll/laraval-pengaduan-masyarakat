@@ -35,7 +35,7 @@
           @method("POST")
           @csrf
           <div class="mb-3">
-            <h2 class="text-center" style="padding-top: 20px;color: #0079FF; text-shadow: 2px 2px #BAD7E9">LogIn</h2>
+            <h2 class="text-center" style="padding-top: 20px;color: #0079FF; text-shadow: 2px 2px #BAD7E9">Login</h2>
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Username</label>

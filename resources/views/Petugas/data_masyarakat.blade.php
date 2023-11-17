@@ -1,4 +1,4 @@
-  @include ('layout.navbar')
+  @include ('layout.navpetugas')
   @section ('content')
       
   @endsection
