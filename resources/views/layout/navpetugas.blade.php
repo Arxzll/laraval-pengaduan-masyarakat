@@ -31,26 +31,37 @@
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <ul class="navbar-nav me">
           <li>
-            <a class="nav-link active" aria-disabled="true" href="/home" style="font-size: 20px ;"><b style=" color:#279EFF ">Pengaduan</b><span >Masyarakat</span></a>
+            <a class="nav-link active" aria-disabled="true" href="/petugas/home" style="font-size: 20px ;"><b style=" color:#279EFF ">Pengaduan</b><span >Masyarakat</span></a>
           </li>
         </ul>
 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+  @if (Auth::guard('petugas')->check() && Auth::guard('petugas')->user()->level === 'admin')
 
     <li class="nav-item">
-        <a class="nav-link active" href="/hasil"><b>Laporan</b></a>
+        <a class="nav-link active" href="/petugas/data_petugas" tabindex="-1" aria-disabled="true"><b>Data Petugas</b></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link active" href="/pengaduan" tabindex="-1" aria-disabled="true"><b>Pengaduan</b></a>
+        <a class="nav-link active" href="/petugas/data_masyarakat" tabindex="-1" aria-disabled="true"><b>Data Masyarakat</b></a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="/petugas/hasil"><b>Laporan</b></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="/petugas/tambah_petugas">Tambah Petugas</a>
+    </li>
+    @else
+    <li class="nav-item">
+      <a class="nav-link active" href="/petugas/hasil"><b>Laporan</b></a>
+  </li>
     {{-- <li class="nav-item">
         <a class="nav-link active" href="{{url('/logout')}}" tabindex="-1" aria-disabled="true"><b>LogOut</b></a>
     </li> --}}
-
+@endif
 
 </ul>
 <ul class="navbar-nav ml-auto">
   <li class="nav-button">
-      <a href="{{url('/logout')}}" class="btn btn-primary"  tabindex="-1" aria-disabled="true" style=" color:white; margin:2px"><b>Logout</b></a>          
+      <a href="{{url('/petugas/logout')}}" class="btn btn-primary"  tabindex="-1" aria-disabled="true" style=" color:white; margin:2px"><b>Logout</b></a>          
   </li>
 </ul>
 

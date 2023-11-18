@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
+
 class AdminController extends Controller
 {
     function tambah_petugas(){
@@ -21,7 +25,9 @@ class AdminController extends Controller
             'username' => $username,
             'password' => $password,
             'telp' => $telp
+            
         ]);
         return redirect('/data_petugas');
     }
+    
 }

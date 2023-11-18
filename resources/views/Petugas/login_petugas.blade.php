@@ -21,14 +21,19 @@
        'GRAD' 0,
        'opsz' 24
      }
-     
+
+     body{
+    background-image: url('../image/bg5.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
          </style>
           <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         </head>
     </head>
     <body class="align">
 
-      <div class="grid container mb-5 register">
+      <div class="grid container mb-5 register" style="margin-top:150px ">
     
         <form method="POST" action="" class="container mt-5" style="background-color: rgba(238, 234, 234, 0.8); 
         border-radius:5px;box-shadow: 5px 5px #BAD7E9 ;">   

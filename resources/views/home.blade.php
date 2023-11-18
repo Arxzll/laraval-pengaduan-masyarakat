@@ -14,7 +14,8 @@
     .text{
         text-align: center;
         margin: 70px;
-
+        position: absolute;
+        left: 33%;
     }
     </style>
     <link rel="stylesheet" href="{{asset('/css/bg.css')}}">
@@ -22,10 +23,12 @@
 <body>
    
     <div class="d-flex">
-<img class="orang" src="{{asset("/image/orang.png")}}" alt=""  height="430px">
+<img class="orang d-none d-md-block" src="{{asset("/image/orang.png")}}" alt=""  height="430px">
 <div class="text">
-    <h2>Selamat Datang Di Pengaduan Masyarakat</h2>
-    <h3>Silahkan Adukan Keluhan Anda Kepada Kami</h3>
+    <center>
+        <h2>Selamat Datang Di Pengaduan Masyarakat</h2>
+        <h3>Silahkan Adukan Keluhan Anda Kepada Kami</h3>
+    </center>
 </div>
     </div>
     </html>

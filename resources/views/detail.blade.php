@@ -23,24 +23,22 @@
             <th scope="col">Id_Pengaduan</th>
             <th scope="col">Tanggal_Pengaduan</th>
             <th scope="col">Isi_Laporan</th>
+            <td scope="col">Tanggapan</td>
             <th scope="col">Foto</th>
             <th scope="col">Status</th>
-            <th scope="col">opsi</th>
         </tr> 
       </thead>
       <tbody class="table-group-divider">
     <td>{{$pengaduan->id_pengaduan}}</td>
     <td>{{ $pengaduan->tgl_pengaduan}}</td>
     <td>{{ $pengaduan->isi_laporan}}</td>
+    <td>{{ $pengaduan->tanggapan}}</td>
     <td><img style="width: 70px;height: 80px" src="{{asset("/img/$pengaduan->foto")}}"></td>
     <td>{{ $pengaduan->status}}</td>
     <td>
       <form method="POST" action="/DetailLaporan/hapus/{{ $pengaduan->id_pengaduan }}">
         @csrf
-        @method('DELETE')
-        <button type="submit" class="btn btn-danger" onclick="alert('Yakin?')">Hapus</button>
                 {{-- @method('') --}}
-        <span><a href="/hasil/update_pengaduan/{{$pengaduan->id_pengaduan}}" class="btn btn-warning">Update</a></span>
     </form>
     </td>
 

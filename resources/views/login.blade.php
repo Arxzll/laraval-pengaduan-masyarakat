@@ -28,14 +28,13 @@
     </head>
     <body class="align">
 
-      <div class="grid container mb-5 register">
-    
+      <div class="grid container mb-5 register" style="margin-top:150px ">
         <form method="POST" action="" class="container mt-5" style="background-color: rgba(238, 234, 234, 0.8); 
         border-radius:5px;box-shadow: 5px 5px #BAD7E9 ;">   
           @method("POST")
           @csrf
           <div class="mb-3">
-            <h2 class="text-center" style="padding-top: 20px;color: #0079FF; text-shadow: 2px 2px #BAD7E9">LogIn</h2>
+            <h2 class="text-center" style="padding-top: 20px;color: #0079FF; text-shadow: 2px 2px #BAD7E9">Login</h2>
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Username</label>

@@ -13,10 +13,7 @@ class MasyarakatController extends Controller
     // return Auth::user();
     return view('/home');
    }
-   function masyarakat(){
-    $masyarakat = DB::table('masyarakat')->get();
-    return view('data_masyarakat',['masyarakat' => $masyarakat]);
-  }
+  
   function register(){
     return view('register');
   }
