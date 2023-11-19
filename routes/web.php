@@ -78,7 +78,7 @@ Route::get('/Petugas/DetailLaporan/selesai/{id_pengaduan}', [TanggapanController
 });
 
 Route::get('/detail', [DetailLaporan::class, 'detailp']);
-Route::get('/DetailLaporan/detailp/{id_pengaduan}', [DetailLaporan::class, "detailp"]);
+Route::get('/DetailLaporan/detail/{id_pengaduan}', [DetailLaporan::class, "detailp"]);
 
 
 Route::post('/register', [AuthController::class, 'store']);

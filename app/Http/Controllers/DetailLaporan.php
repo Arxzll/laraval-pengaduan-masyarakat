@@ -20,7 +20,10 @@ class DetailLaporan extends Controller
 
     function detail_petugas($id_pengaduan){
         $title = "Laporan Per Orang";
-        $pengaduan = DB::table('pengaduan')->rightJoin('tanggapan', 'pengaduan.id_pengaduan', '=', 'tanggapan.id_pengaduan')
+        // $pengaduan = DB::table('pengaduan')->rightJoin('tanggapan', 'pengaduan.id_pengaduan', '=', 'tanggapan.id_pengaduan')
+        //         ->where('pengaduan.id_pengaduan', $id_pengaduan)
+        //         ->first();
+        $pengaduan = DB::table('pengaduan')->leftJoin('tanggapan', 'pengaduan.id_pengaduan', '=', 'tanggapan.id_pengaduan')
                 ->where('pengaduan.id_pengaduan', $id_pengaduan)
                 ->first();
   
@@ -31,11 +34,14 @@ class DetailLaporan extends Controller
             }
     function detailp($id_pengaduan){
         $title = "Laporan Per Orang";
-        $pengaduan = DB::table('pengaduan')
-                ->where('id_pengaduan', $id_pengaduan)
-                ->first();
+        // $pengaduan = DB::table('pengaduan')
+        //         ->where('id_pengaduan', $id_pengaduan)
+        //         ->first();
+        $pengaduan =  DB::table('pengaduan')->leftJoin('tanggapan', 'pengaduan.id_pengaduan', '=', 'tanggapan.id_pengaduan')
+                    ->where('pengaduan.id_pengaduan', $id_pengaduan)
+                    ->first();
   
-                return view('petugas/detail', [
+                return view('detail', [
                     "title" => $title,
                     "pengaduan" => $pengaduan
                 ]);        
