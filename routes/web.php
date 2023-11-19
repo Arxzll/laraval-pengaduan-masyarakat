@@ -36,8 +36,8 @@ Route::middleware(['auth'])->group(function () {
     route::get('/pengaduan', [PengaduanController::class, 'pengaduan']);
     route::post('/pengaduan', [PengaduanController::class, 'proses_tambah_pengaduan']);
     route::get('/Petugas/Detail/{id_pengaduan}', [DetailLaporan::class, 'detail_petugas']);
-    route::post('/tambah_petugas', 'App\Http\Controllers\AdminController@proses_tambah_petugas');
-    route::get('/tambah_petugas','App\Http\Controllers\AdminController@tambah_petugas');
+    // route::post('/tambah_petugas', 'App\Http\Controllers\AdminController@proses_tambah_petugas');
+    // route::get('/tambah_petugas','App\Http\Controllers\AdminController@tambah_petugas');
 
     Route::get('/detail', [DetailLaporan::class, 'detail']);
 
@@ -52,6 +52,7 @@ Route::middleware(['cekPetugas'])->group(function () {
     Route::get('/petugas/home', [PetugasController::class, "index"]);
 
     Route::get('/petugas/tambah_petugas', [AdminController::class, 'tambah_petugas']);
+    Route::post('/petugas/tambah_petugas', [AdminController::class, 'proses_tambah_petugas']);
 
     Route::get('/petugas/data_petugas', 'App\Http\Controllers\PetugasController@petugas');
 

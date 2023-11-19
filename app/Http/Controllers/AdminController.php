@@ -27,7 +27,7 @@ class AdminController extends Controller
             'telp' => $telp
             
         ]);
-        return redirect('/data_petugas');
+        return redirect('/petugas/data_petugas');
     }
     
 }

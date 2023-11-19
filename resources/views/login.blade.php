@@ -28,8 +28,7 @@
     </head>
     <body class="align">
 
-      <div class="grid container mb-5 register">
-    
+      <div class="grid container mb-5 register" style="margin-top:150px ">
         <form method="POST" action="" class="container mt-5" style="background-color: rgba(238, 234, 234, 0.8); 
         border-radius:5px;box-shadow: 5px 5px #BAD7E9 ;">   
           @method("POST")
@@ -44,14 +43,9 @@
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Password</label>
             <input type="password" class="form-control" name="password" id="exampleInputall1">
-          <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" name="rememberMe" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Remember me</label>
-          </div>
-          <center><button type="submit" name="submit" class="btn btn-primary mb-3">LogIn</button></center>
-          <a href="/register">Register</a>
+          <center><button type="submit" name="submit" class="btn btn-primary mb-3 mt-3">LogIn</button></center>
+          <center><p>Belum Punya Akun?<a href="/register" style="text-decoration: none;"> Klik Disini</a></p> </center>
         </form>
     
       </div>
     
-

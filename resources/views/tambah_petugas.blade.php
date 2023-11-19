@@ -21,6 +21,8 @@
   
       <form method="POST" action="" class="container mt-5" style="box-size:50%; background-color: rgba(238, 234, 234, 0.8);border-radius:5px;box-shadow: 5px 5px #BAD7E9;">
         @csrf
+        @method('POST')
+
 
         
         <div class="mb-3">
